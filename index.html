@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JSCS configurator</title>
+</head>
+<body>
+
+	<script>
+	document.documentElement.className += " js";
+	</script>
+
+	<script>
+	var config = {
+		"requireCurlyBraces": [{
+			"sample": "if (x) x++;"
+			"value": null
+		},{
+			"sample": "if (x) <em>{</em>\n  x++;\n}"
+			"value": ["if","else","for","while","do","try","catch","case","default"],
+			"property": "requireCurlyBraces"
+		}],
+		"requireSpaceAfterKeywords": [{
+			"sample": "if<em>&nbsp;</em>(x) {\n  x++;\n}"
+			"value": ["if","else","for","while","do","try","catch","switch","return"],
+			"property": "requireSpaceAfterKeywords"
+		},{
+			"sample": "if<em></em>(x) {\n  x++;\n}"
+			"value": ["if","else","for","while","do","try","catch","switch","return"],
+			"property": "disallowSpaceAfterKeywords"
+		},{
+			"sample": "don't care"
+			"value": null
+		}],
+		"requireSpaceBeforeBlockStatements": [{
+			"sample": "if (x)<em>&nbsp;</em>{\n  x++;\n}"
+			"value": true,
+			"property": "requireSpaceBeforeBlockStatements"
+		},{
+			"sample": "if (x)<em></em>{\n  x++;\n}"
+			"value": true,
+			"property": "disallowSpaceBeforeBlockStatements"
+		},{
+			"sample": "don't care"
+			"value": null
+		}],
+		"requireParenthesesAroundIIFE": [{
+			"sample": "var a = (function(){ return 1; })();\nvar b = (function(){ return 2; }());\nvar c = (function(){ return 3; }).call(this, arg1);\nvar d = (function(){ return 3; }.call(this, arg1));\nvar e = (function(){ return d; }).apply(this, args);\nvar f = (function(){ return d; }.apply(this, args));",
+			"value": true,
+			"property": "requireParenthesesAroundIIFE"
+		},{
+			"sample": "var a = function(){ return 1; }();\nvar c = function(){ return 3; }.call(this, arg1);\nvar d = function(){ return d; }.apply(this, args);",
+			"value": false,
+			"property": "requireParenthesesAroundIIFE"
+		},{
+			"sample":"don't care"
+			"value": null
+		}]
+	}
+	</script>
+	
+</body>
+</html>
